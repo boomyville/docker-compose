@@ -1,0 +1,17 @@
+# ================================================================
+# Values to change:
+# ================================================================
+# /home/user/jupyter:/home/jovyan/work directory
+# ================================================================
+# Difficulty: Easy (but setup is required)
+version: '3'
+services:
+  jupyter:
+    image: jupyter/minimal-notebook
+    volumes:
+      - /home/user/jupyter:/home/jovyan/work
+    environment:
+      - GEN_CERT=yes
+    ports:
+      - 8888:8888
+    container_name: jupyter_notebook
