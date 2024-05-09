@@ -1,0 +1,32 @@
+# ================================================================
+# Values to change:
+# ================================================================
+# MYSQL_ROOT_PASSWORD=password
+# MYSQL_DATABASE=database 
+# MYSQL_USER=mysql_user
+# MYSQL_PASSWORD=mysql_password
+# /home/user/mariadb:/config directory
+# ================================================================
+# Difficulty: Easy
+# ================================================================
+# Note you will need to login with  mysql -u root -p and grant all
+# privileges to mysql_user (google it)
+---
+version: "2.1"
+services:
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Melbourne
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=database #optional
+      - MYSQL_USER=mysql_user #optional
+      - MYSQL_PASSWORD=mysql_password #optional
+    volumes:
+      - /home/user/mariadb:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
