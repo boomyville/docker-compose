@@ -1,0 +1,23 @@
+# ================================================================
+# Values to change:
+# ================================================================
+# USERNAME
+# PASSWORD
+# /home/user/esphome directory
+# ================================================================
+# Difficulty: Easy
+
+version: '3'
+services:
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome
+    volumes:
+      - /home/user/esphome:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    network_mode: host
+    environment:
+      - USERNAME=username
+      - PASSWORD=password
