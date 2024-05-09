@@ -1,0 +1,19 @@
+# ================================================================
+# Values to change:
+# ================================================================
+# /home/user/mosquitto:/mosquitto
+# /home/user/mosquitto/data:/mosquitto/data
+# /home/user/mosquitto/log:/mosquitto/log
+# ================================================================
+# Difficulty: Easy
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    volumes:
+      - /home/user/mosquitto:/mosquitto
+      - /home/user/mosquitto/data:/mosquitto/data
+      - /home/user/mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001    
