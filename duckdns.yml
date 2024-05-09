@@ -1,3 +1,9 @@
+# Values to change:
+# SUBDOMAINS (mario would be the value for mario.duckdns.org)
+# TOKEN 
+#
+# Difficulty: Easy
+
 version: "2.1"
 services:
   duckdns:
