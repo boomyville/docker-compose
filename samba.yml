@@ -1,0 +1,29 @@
+# ===================================================================================
+# Values to change:
+# ===================================================================================
+# ACCOUNT_user: password (replace user in ACCOUNT_user with ACCOUNT_mario)
+# SAMBA_VOLUME_CONFIG_share (replace share with name of fileshare such as share)
+# Change user to mario in path=/shares/user (or whatever account username you created)
+# Change user to mario in force user = user (or whatever account username you created)
+# /media/user/storage:/shares/user (change storage directory as well as the shares/user to mario)
+# ===================================================================================
+# Difficulty: Medium
+# ===================================================================================
+# Login as \\192.168.1.10\share
+---
+version: "3.9"
+
+services:
+  samba:
+    image: docker.io/servercontainers/samba:latest
+    container_name: samba
+    restart: unless-stopped
+    environment:
+      ACCOUNT_user: password
+      UID_user: 1000
+      SAMBA_VOLUME_CONFIG_share: "[share]; path=/shares/user; available = yes; browsable = yes; writable = yes; read only = no; force user = user; public = yes; guest ok = yes"
+    volumes:
+      - /media/user/storage:/shares/user
+    ports:
+      - 445:445
+
