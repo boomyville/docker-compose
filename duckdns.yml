@@ -1,7 +1,10 @@
+# ================================================================
 # Values to change:
+# ================================================================
 # SUBDOMAINS (mario would be the value for mario.duckdns.org)
 # TOKEN 
-#
+# /home/user/duckdns directory
+# ================================================================
 # Difficulty: Easy
 
 version: "2.1"
